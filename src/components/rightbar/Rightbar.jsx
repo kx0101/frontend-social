@@ -66,11 +66,7 @@ export default function Rightbar({profile}) {
   return (
     <div className="rightbar">
       <div className="rightbarWrapper">
-<<<<<<< HEAD
         {profile ? <ProfileRightbar /> : <HomeRightbar />}
-=======
-        <ProfileRightbar />
->>>>>>> 01d3bde2188f417cf5081ee2d20a6acfe60b3d5f
       </div>
     </div>
   )
