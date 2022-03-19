@@ -1,7 +1,7 @@
 import Topbar from "../../components/topbar/Topbar";
 import SideBar from "../../components/sidebar/Sidebar";
 import Feed from "../../components/feed/Feed";
-import RightBar from "../../components/rightbar/Rightbar";
+import Rightbar from "../../components/rightbar/Rightbar";
 import "./Home.css"
 
 export default function Home() {
@@ -11,7 +11,7 @@ export default function Home() {
             <div className="homeContainer">
                 <SideBar />
                 <Feed />
-                <RightBar />
+                <Rightbar profile />
             </div>
         </div>
     )

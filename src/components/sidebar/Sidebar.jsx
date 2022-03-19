@@ -8,6 +8,8 @@ import HelpIcon from '@mui/icons-material/Help';
 import WorkIcon from '@mui/icons-material/Work';
 import EventIcon from '@mui/icons-material/Event';
 import SchoolIcon from '@mui/icons-material/School';
+import {Users} from "../../data"
+import CloseFriends from "../closeFriends/CloseFriends";
 
 export default function Sidebar() {
   return (
@@ -88,61 +90,9 @@ export default function Sidebar() {
 
         {/* Friend List */}
         <ul className="sidebarFriendList">
-
-          <li className="sidebarFriend">
-            <img className="sidebarFriendImg" src="/assets/person/1.jpeg" alt="" />
-            <span className="sidebarFriendName">Takisa Papadopoulou</span>
-          </li>
-
-          <li className="sidebarFriend">
-            <img className="sidebarFriendImg" src="/assets/person/1.jpeg" alt="" />
-            <span className="sidebarFriendName">Takisa Papadopoulou</span>
-          </li>
-
-          <li className="sidebarFriend">
-            <img className="sidebarFriendImg" src="/assets/person/1.jpeg" alt="" />
-            <span className="sidebarFriendName">Takisa Papadopoulou</span>
-          </li>
-
-          <li className="sidebarFriend">
-            <img className="sidebarFriendImg" src="/assets/person/1.jpeg" alt="" />
-            <span className="sidebarFriendName">Takisa Papadopoulou</span>
-          </li>
-
-          <li className="sidebarFriend">
-            <img className="sidebarFriendImg" src="/assets/person/1.jpeg" alt="" />
-            <span className="sidebarFriendName">Takisa Papadopoulou</span>
-          </li>
-
-          <li className="sidebarFriend">
-            <img className="sidebarFriendImg" src="/assets/person/1.jpeg" alt="" />
-            <span className="sidebarFriendName">Takisa Papadopoulou</span>
-          </li>
-
-          <li className="sidebarFriend">
-            <img className="sidebarFriendImg" src="/assets/person/1.jpeg" alt="" />
-            <span className="sidebarFriendName">Takisa Papadopoulou</span>
-          </li>
-
-          <li className="sidebarFriend">
-            <img className="sidebarFriendImg" src="/assets/person/1.jpeg" alt="" />
-            <span className="sidebarFriendName">Takisa Papadopoulou</span>
-          </li>
-
-          <li className="sidebarFriend">
-            <img className="sidebarFriendImg" src="/assets/person/1.jpeg" alt="" />
-            <span className="sidebarFriendName">Takisa Papadopoulou</span>
-          </li>
-
-          <li className="sidebarFriend">
-            <img className="sidebarFriendImg" src="/assets/person/1.jpeg" alt="" />
-            <span className="sidebarFriendName">Takisa Papadopoulou</span>
-          </li>
-
-          <li className="sidebarFriend">
-            <img className="sidebarFriendImg" src="/assets/person/1.jpeg" alt="" />
-            <span className="sidebarFriendName">Takisa Papadopoulou</span>
-          </li>
+          {Users.map(u => (
+            <CloseFriends key={u.id} user={u} />
+          ))}
         </ul>
 
       </div>
