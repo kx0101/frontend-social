@@ -4,6 +4,8 @@ import Online from "../online/Online"
 
 export default function Rightbar({profile}) {
 
+  const PF = process.env.REACT_APP_PUBLIC_FOLDER;
+
   const HomeRightbar = () => {
     return (
       <>
@@ -47,15 +49,15 @@ export default function Rightbar({profile}) {
         <h4 className="rightbarTitle">User friends</h4>
         <div className="rightbarFollowings">
           <div className="rightbarFollowing">
-            <img className="rightbarFollowingImg" src="assets/person/2.jpeg" alt="" />
+            <img className="rightbarFollowingImg" src={`${PF}person/2.jpeg`} alt="" />
             <span className="rightbarFollowingName">Saske</span>
           </div>
            <div className="rightbarFollowing">
-            <img className="rightbarFollowingImg" src="assets/person/3.jpeg" alt="" />
+            <img className="rightbarFollowingImg" src={`${PF}person/3.jpeg`} alt="" />
             <span className="rightbarFollowingName">Hix Marinopoulos</span>
           </div>
            <div className="rightbarFollowing">
-            <img className="rightbarFollowingImg" src="assets/person/4.jpeg" alt="" />
+            <img className="rightbarFollowingImg" src={`${PF}person/4.jpeg`} alt="" />
             <span className="rightbarFollowingName">eimai cool?</span>
           </div>
         </div>
