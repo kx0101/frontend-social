@@ -10,16 +10,15 @@ import {
 } from "react-router-dom";
 
 function App() {
-  render (
+  return (
     <BrowserRouter>
       <Routes>
-        <Route exact path="/" element={<Home />} />
+        <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/profile/:username" element={<Profile />} />
       </Routes>
-    </BrowserRouter>,
-    document.getElementById("root")
+    </BrowserRouter>
   )
 }
 
