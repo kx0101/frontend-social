@@ -24,15 +24,15 @@ export default function Login() {
             <h3 className="loginLogo">Her<span className="mes">mes</span></h3>
                 <span className="loginDesc">Connect with friends around the world with Hermes! Super quick!</span>
             </div>
-            <form className="loginRight" onSubmit={handleClick}>
-                <div className="loginBox">
+            <div className="loginRight">
+                <form className="loginBox" onSubmit={handleClick}>
                     <input placeholder="Email" type="email" className="loginInput" ref={email} required />
                     <input placeholder="Password" autoComplete="off" type="password" ref={password} className="loginInput" required minLength="6" />
                     <button className="loginButton">Log In</button>
                     <span className="loginForgot">Forgot Password</span>
                     <button className="loginRegisterButton">Create a New Account</button>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     </div>
   )
