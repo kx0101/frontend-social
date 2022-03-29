@@ -4,19 +4,21 @@ import Post from "../post/Post"
 import {useState} from "react"
 import { useEffect } from "react";
 import axios from "axios"
+import { useContext } from "react";
+import AuthContext from "../../context/AuthContext"
 
-export default function Feed() {
+export default function Feed({ username }) {
   const [posts, setPosts] = useState([]);
-  const [text, setText] = useState("");
+  const {user} = useContext(AuthContext)
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const res = await axios.get("posts/timeline/6231a6aaaac23ad444fdbe79");
+      const res = username ? await axios.get("/posts/profile/" + username) : await axios.get("posts/timeline/" + user._id);
       setPosts(res.data)
     }
 
     fetchPosts();
-  }, []) //Render this useEffect once only.
+  }, [username, user._id]) //Render this useEffect once only.
 
   return (
     <div className="feed">
