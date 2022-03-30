@@ -21,6 +21,12 @@
   cursor: pointer;
 }
 
+.rightbarFollowingName {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .rightbarFollowButton:focus {
   outline: none;
 }
