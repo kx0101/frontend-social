@@ -8,6 +8,7 @@ import AuthContext from "../../context/AuthContext"
 import { useRef } from "react";
 import { useState } from "react";
 import axios from "axios";
+import CancelIcon from '@mui/icons-material/Cancel';
 
 export default function Share() {
     const {user} = useContext(AuthContext);
@@ -56,6 +57,12 @@ export default function Share() {
                 <input placeholder={"What's in your mind " + user.username + "?"} type="text" className="shareInput" ref={description} />
             </div>
             <hr className="shareHr" />
+            {file && (
+                <div className="shareImgContainer">
+                    <img className="shareImg" src={URL.createObjectURL(file)} alt="" />
+                    <CancelIcon className="shareCancelImg" onClick={() => setFile(null)} />
+                </div>
+            )}
             <form className="shareBottom" onSubmit={submitHandler} encType='multipart/form-data' >
                 <div className="shareOptions">
                     <label htmlFor="file" className="shareOption">
