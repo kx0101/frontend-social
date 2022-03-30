@@ -24,5 +24,5 @@
 <img src="timeline2.png" />
 <img src="profile.png" />
 <img src="anotheruser.png" />
-<img src="creatingPost" />
-<img src="createdPost" />
+<img src="creatingPost.png" />
+<img src="createdPost.png" />
