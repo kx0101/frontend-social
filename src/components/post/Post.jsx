@@ -60,7 +60,7 @@ export default function Post({post}) {
                 <span className="postText">
                     {post?.description}
                 </span>
-                <img className="postImg" src={PF+post.img} alt="" /> {/* localhost:3001/assets/name.png */}
+                <img className="postImg" src={PF+post.img} alt="" />
             </div>
             <div className="postBottom">
                 <div className="postBottomLeft">

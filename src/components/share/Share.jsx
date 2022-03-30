@@ -15,15 +15,33 @@ export default function Share() {
     const description = useRef();
     const [file, setFile] = useState(null);
 
+
     const submitHandler = async (e) => {
         e.preventDefault();
         const newPost = {
             userId: user._id,
             description: description.current.value
+        };
+
+        if(file){
+            const data = new FormData();
+            const d = new Date();
+            let minutes = d.getMinutes();
+            const fileName = minutes + file.name;
+            newPost.img = fileName;
+            data.append("file", file);
+            data.append("name", fileName);
+            try {
+                await axios.post("/upload", data);
+                window.location.reload();
+            } catch (error) {
+                console.log(error);
+            }
         }
 
         try {
             await axios.post("/posts", newPost)
+            window.location.reload();
         } catch (error) {
             console.log(error);
         }
@@ -38,12 +56,12 @@ export default function Share() {
                 <input placeholder={"What's in your mind " + user.username + "?"} type="text" className="shareInput" ref={description} />
             </div>
             <hr className="shareHr" />
-            <form className="shareBottom" onSubmit={submitHandler} >
+            <form className="shareBottom" onSubmit={submitHandler} encType='multipart/form-data' >
                 <div className="shareOptions">
                     <label htmlFor="file" className="shareOption">
                         <PermMediaIcon htmlColor="blue" className="shareIcon" />
                         <span className="shareOptionText">Photo/Video</span>
-                        <input style={{display: "none"}} type="file" id="file" accept=".png,.jpeg,.jpg" onChange={(e) =>  setFile(e.target.files[0])} />
+                        <input style={{display: "none"}} name="file" type="file" id="file" accept=".png,.jpeg,.jpg" onChange={(e) =>  setFile(e.target.files[0])} />
                     </label>
                     <div className="shareOption">
                         <LabelIcon htmlColor="green" className="shareIcon" />
