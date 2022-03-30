@@ -1,10 +1,13 @@
 import "./rightbar.css"
 import {Users} from "../../data"
 import Online from "../online/Online"
+import { AuthContext } from "../../context/AuthContext";
+import { useContext, useEffect, useState } from "react";
 
-export default function Rightbar({profile}) {
+export default function Rightbar({user}) {
 
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
+  const { user: currentUser, dispatch } = useContext(AuthContext);
 
   const HomeRightbar = () => {
     return (
@@ -35,15 +38,17 @@ export default function Rightbar({profile}) {
         <div className="rightbarInfo">
           <div className="rightbarInfoItem">
             <span className="rightbarInfoKey">City: </span>
-            <span className="rightbarInfoValue">Giannitsara</span>
+            <span className="rightbarInfoValue">{user.city}</span>
           </div>
           <div className="rightbarInfoItem">
             <span className="rightbarInfoKey">From: </span>
-            <span className="rightbarInfoValue">Giannitsara</span>
+            <span className="rightbarInfoValue">{user.from}</span>
           </div>
           <div className="rightbarInfoItem">
             <span className="rightbarInfoKey">Relationship: </span>
-            <span className="rightbarInfoValue">Married</span>
+            <span className="rightbarInfoValue">
+              {user.relationship === 1 ? "Single" : user.relationship === 1 ? "Married" : "-"}
+            </span>
           </div>
         </div>
         <h4 className="rightbarTitle">User friends</h4>
@@ -51,14 +56,6 @@ export default function Rightbar({profile}) {
           <div className="rightbarFollowing">
             <img className="rightbarFollowingImg" src={`${PF}person/2.jpeg`} alt="" />
             <span className="rightbarFollowingName">Saske</span>
-          </div>
-           <div className="rightbarFollowing">
-            <img className="rightbarFollowingImg" src={`${PF}person/3.jpeg`} alt="" />
-            <span className="rightbarFollowingName">Hix Marinopoulos</span>
-          </div>
-           <div className="rightbarFollowing">
-            <img className="rightbarFollowingImg" src={`${PF}person/4.jpeg`} alt="" />
-            <span className="rightbarFollowingName">eimai cool?</span>
           </div>
         </div>
       </>
@@ -68,7 +65,7 @@ export default function Rightbar({profile}) {
   return (
     <div className="rightbar">
       <div className="rightbarWrapper">
-        {profile ? <ProfileRightbar /> : <HomeRightbar />}
+        {user ? <ProfileRightbar /> : <HomeRightbar />}
       </div>
     </div>
   )
