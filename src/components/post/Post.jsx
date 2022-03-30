@@ -22,12 +22,17 @@ export default function Post({post}) {
 
     useEffect(() => {
     const fetchUser = async () => {
-      const res = await axios.get(`users/${post.userId}`);
-      setUser(res.data)
+        try {
+            const res = await axios.get(`/users?userId=${post.userId}`);
+            setUser(res.data)
+        } catch (error) {
+            console.log(error);
+        }
+      
     }
 
     fetchUser();
-  }, [post.userId]) //Render this useEffect once only.
+  }, [post.userId]) 
 
     // if it's already liked, we un-like it.
     const likeHandler = () => {
@@ -46,7 +51,7 @@ export default function Post({post}) {
         <div className="postWrapper">
             <div className="postTop">
                 <div className="postTopLeft">
-                    <Link to={`profile/${user.username}`}> 
+                    <Link to={`/profile/${user.username}`}> 
                         <img className="postProfileImg" src={user.profilePicture ? user.profilePicture : PF+"person/noAvatar.png"} alt="" />
                     </Link>
                     <span className="postUsername">{user.username}</span>
